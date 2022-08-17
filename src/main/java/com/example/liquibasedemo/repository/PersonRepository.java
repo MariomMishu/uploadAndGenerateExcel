@@ -1,5 +1,6 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.repository;
 
+import com.example.liquibasedemo.schema.PersonEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

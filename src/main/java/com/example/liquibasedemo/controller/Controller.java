@@ -1,5 +1,9 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.controller;
 
+import com.example.liquibasedemo.domain.BulkOperation;
+import com.example.liquibasedemo.ExcelExporter;
+import com.example.liquibasedemo.service.PersonService;
+import com.example.liquibasedemo.domain.Person;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,11 +20,9 @@ import java.util.List;
 @RequestMapping(value = "person", produces = MediaType.APPLICATION_JSON_VALUE)
 public class Controller {
 
-    private final PersonRepository personRepository;
     private final PersonService personService;
 
-    public Controller(PersonRepository personRepository, PersonService personService) {
-        this.personRepository = personRepository;
+    public Controller( PersonService personService) {
         this.personService = personService;
     }
 
@@ -40,7 +42,7 @@ public class Controller {
         String headerValue = "attachement; filename="+fileName;
         response.setHeader(headerKey,headerValue);
         List<Person> persons = personService.listAll();
-        PersonExcelExporter excelExporter = new PersonExcelExporter(persons);
+        ExcelExporter excelExporter = new ExcelExporter(persons);
         excelExporter.export(response);
     }
 }

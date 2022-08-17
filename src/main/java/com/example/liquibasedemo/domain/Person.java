@@ -1,4 +1,4 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.domain;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

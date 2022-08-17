@@ -1,5 +1,6 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.domain;
 
+import com.example.liquibasedemo.domain.Person;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;

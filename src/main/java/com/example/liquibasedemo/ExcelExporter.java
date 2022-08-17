@@ -1,5 +1,6 @@
 package com.example.liquibasedemo;
 
+import com.example.liquibasedemo.domain.Person;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
@@ -11,12 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class PersonExcelExporter {
+public class ExcelExporter {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
     private List<Person> personList;
 
-    public PersonExcelExporter(List<Person> personList) {
+    public ExcelExporter(List<Person> personList) {
         this.personList = personList;
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Persons");
@@ -47,7 +48,7 @@ public class PersonExcelExporter {
     private void writeDataRows() {
         int rowCount = 1;
         for (Person person : personList){
-            Row row = sheet.createRow(rowCount++);
+            Row row = sheet.createRow(rowCount);
 
             Cell cell = row.createCell(0);
             cell.setCellValue(person.getFirstName()+" "+person.getLastName());
@@ -58,7 +59,7 @@ public class PersonExcelExporter {
             sheet.autoSizeColumn(1);
 
             cell = row.createCell(2);
-            cell.setCellValue(person.getStreet1());
+            cell.setCellValue(person.getStreet1()+", "+person.getStreet2());
             sheet.autoSizeColumn(2);
 
         }

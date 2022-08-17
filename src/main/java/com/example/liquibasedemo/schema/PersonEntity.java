@@ -1,4 +1,4 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.schema;
 
 import lombok.Getter;
 import lombok.Setter;

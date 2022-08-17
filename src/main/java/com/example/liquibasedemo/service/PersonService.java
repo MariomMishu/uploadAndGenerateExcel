@@ -1,6 +1,9 @@
-package com.example.liquibasedemo;
+package com.example.liquibasedemo.service;
 
-import com.fasterxml.jackson.databind.util.BeanUtil;
+import com.example.liquibasedemo.domain.BulkOperation;
+import com.example.liquibasedemo.domain.Person;
+import com.example.liquibasedemo.schema.PersonEntity;
+import com.example.liquibasedemo.repository.PersonRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
@@ -90,8 +93,10 @@ public class PersonService {
 
                 person.setStreet1(
                         ro.getCell(3, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
-                person.setPhoneNumber1(this.getCellValueIfValid(sheet, ro.getCell(4), 4));
-                person.setPhoneNumber2(this.getCellValueIfValid(sheet, ro.getCell(5), 5));
+                person.setStreet2(
+                        ro.getCell(4, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK).getStringCellValue());
+                person.setPhoneNumber1(this.getCellValueIfValid(sheet, ro.getCell(5), 5));
+                person.setPhoneNumber2(this.getCellValueIfValid(sheet, ro.getCell(6), 6));
 
                 personRequests.add(person);
             } catch (Exception e) {
