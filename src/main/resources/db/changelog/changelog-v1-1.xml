@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="11" author="mishu">
+        <createTable tableName="tbl_car">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="brand" type="varchar(100)"></column>
+            <column name="owner_id" type="bigint"/>
+
+        </createTable>
+        <addForeignKeyConstraint constraintName="fk_car2owner"
+                                 baseTableName="tbl_car"
+                                 baseColumnNames="owner_id"
+                                 referencedTableName="tbl_person"
+                                 referencedColumnNames="id"/>
+    </changeSet>
+    <changeSet id="12" author="mishu">
+        <addColumn schemaName="liquibase" tableName="tbl_car">
+            <column name="model" type="varchar(100)">
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="1" author="mishu">
+        <addColumn schemaName="liquibase" tableName="tbl_person">
+            <column name="address" type="varchar(100)">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="2" author="mishu">
+        <delete schemaName="liquibase" tableName="tbl_person">
+            <where>name="Test New"</where>
+        </delete>
+    </changeSet>
+    <changeSet id="3" author="mishu">
+        <addColumn schemaName="liquibase" tableName="tbl_person">
+            <column name="address2" type="varchar(100)">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="4" author="mishu">
+        <addColumn schemaName="liquibase" tableName="tbl_person">
+            <column name="address3" type="varchar(100)">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet id="5" author="mishu">
+        <addColumn schemaName="liquibase" tableName="tbl_person">
+            <column name="address2" type="varchar(100)">
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
